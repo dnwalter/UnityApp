@@ -1,0 +1,26 @@
+<manifest package="com.ousy.spacechain"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 震动 -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_spacechain"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity
+            android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <!-- 一定要加上这句 -->
+            <meta-data
+                android:name="unityplayer.UnityActivity"
+                android:value="true"/>
+        </activity>
+    </application>
+
+</manifest>
