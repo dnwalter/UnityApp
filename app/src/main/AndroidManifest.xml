@@ -2,6 +2,14 @@
 <manifest package="com.ousy.unityapp"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- 配置权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_spacechain"
@@ -18,6 +26,27 @@
             </intent-filter>
         </activity>
         <activity android:name=".HelpActivity"/>
+
+        <!-- 其他组件 -->
+        <activity
+            android:name="net.youmi.android.AdBrowser"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity >
+
+        <service
+            android:name="net.youmi.android.AdService"
+            android:exported="false" >
+        </service >
+
+        <receiver android:name="net.youmi.android.AdReceiver" >
+            <intent-filter >
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_INSTALL" />
+
+                <data android:scheme="package" />
+            </intent-filter >
+        </receiver >
     </application>
 
 </manifest>
